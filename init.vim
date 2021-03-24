@@ -31,7 +31,7 @@ Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}  " better python
 Plug 'tpope/vim-commentary'                             " better commenting
 Plug 'mhinz/vim-startify'                               " cool start up screen
 Plug 'tpope/vim-fugitive'                               " git support
-Plug 'psliwka/vim-smoothie'                             " some very smooth ass scrolling
+"Plug 'psliwka/vim-smoothie'                             " some very smooth ass scrolling
 Plug 'wellle/tmux-complete.vim'                         " complete words from a tmux panes
 Plug 'tpope/vim-eunuch'                                 " run common Unix commands inside Vim
 Plug 'machakann/vim-sandwich'                           " make sandwiches
@@ -76,7 +76,7 @@ set grepprg=rg\ --vimgrep                               " use rg as default grep
 " performance tweaks
 set nocursorline
 set nocursorcolumn
-set scrolljump=5
+"set scrolljump=5
 set lazyredraw
 set redrawtime=10000
 set synmaxcol=180
@@ -90,6 +90,9 @@ set cmdheight=1
 set updatetime=300
 set shortmess+=c
 set signcolumn=yes
+
+" chetan's tweaks
+set norelativenumber
 
 " Themeing
 let g:material_style = 'oceanic'
