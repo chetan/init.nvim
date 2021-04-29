@@ -50,7 +50,7 @@ call plug#end()
 set termguicolors                                       " Opaque Background
 set mouse=a                                             " enable mouse scrolling
 set clipboard+=unnamedplus                              " use system clipboard by default
-set tabstop=4 softtabstop=4 shiftwidth=4 autoindent     " tab width
+set tabstop=2 softtabstop=2 shiftwidth=2 autoindent     " tab width
 set expandtab smarttab                                  " tab key actions
 set incsearch ignorecase smartcase hlsearch             " highlight text while searching
 set list listchars=trail:»,tab:»-                       " use tab to navigate in list mode
@@ -126,7 +126,7 @@ let g:omni_sql_no_default_maps = 1                      " disable sql omni compl
 let g:loaded_python_provider = 0
 let g:loaded_perl_provider = 0
 let g:loaded_ruby_provider = 0
-let g:python3_host_prog = expand('/usr/bin/python3')
+let g:python3_host_prog = expand('/usr/local/bin/python3')
 
 " Airline
 let g:airline_theme='material'
@@ -361,15 +361,16 @@ map <Enter> o<ESC>
 map <S-Enter> O<ESC>
 
 " use a different register for delete and paste
-nnoremap d "_d
-vnoremap d "_d
-vnoremap p "_dP
-nnoremap x "_x
-
-" emulate windows copy, cut behavior
-vnoremap <LeftRelease> "+y<LeftRelease>
-vnoremap <C-c> "+y<CR>
-vnoremap <C-x> "+d<CR>
+"" disabled by chetan
+"" nnoremap d "_d
+"" vnoremap d "_d
+"" vnoremap p "_dP
+"" nnoremap x "_x
+""
+"" " emulate windows copy, cut behavior
+"" vnoremap <LeftRelease> "+y<LeftRelease>
+"" vnoremap <C-c> "+y<CR>
+"" vnoremap <C-x> "+d<CR>
 
 " switch between splits using ctrl + {h,j,k,l}
 inoremap <C-h> <C-\><C-N><C-w>h
