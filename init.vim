@@ -22,6 +22,7 @@ Plug 'Jorengarenar/vim-MvVis'                           " move visual selection
 
 " ================= Functionalities ================= "{{{
 
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'neoclide/coc.nvim', {'branch': 'release'}         " LSP and more
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }     " fzf itself
 Plug 'junegunn/fzf.vim'                                 " fuzzy search integration
@@ -38,6 +39,11 @@ Plug 'machakann/vim-sandwich'                           " make sandwiches
 Plug 'christoomey/vim-tmux-navigator'                   " seamless vim and tmux navigation
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 Plug 'memgraph/cypher.vim'
+
+" additional plugins
+Plug 'jvirtanen/vim-hcl'
+Plug 'dstein64/vim-startuptime'
+
 call plug#end()
 
 "}}}
@@ -77,6 +83,7 @@ set grepprg=rg\ --vimgrep                               " use rg as default grep
 set nocursorline
 set nocursorcolumn
 "set scrolljump=5
+set ttyfast
 set lazyredraw
 set redrawtime=10000
 set synmaxcol=180
@@ -118,17 +125,22 @@ hi CocCursorRange guibg=#b16286 guifg=#ebdbb2
 " ======================== Plugin Configurations ======================== "{{{
 
 "" built in plugins
-let loaded_netrw = 0                                    " diable netew
+" let loaded_netrw = 1                                    " diable netew
 let g:omni_sql_no_default_maps = 1                      " disable sql omni completion
 let g:loaded_python_provider = 0
 let g:loaded_perl_provider = 0
 let g:loaded_ruby_provider = 0
-if glob('~/.python3') != ''
+
+if glob('~/.config/nvim/venv/bin') != ''
+  let g:python3_host_prog = expand('~/.config/nvim/venv/bin/python3')
+elseif glob('~/.python3') != ''
   let g:python3_host_prog = expand('~/.python3/bin/python')
-else
-  let g:python3_host_prog = systemlist('which python3')[0]
+elseif glob('/opt/homebrew/bin/python3') != ''
+  " let g:python3_host_prog = systemlist('which python3')[0]
   " let g:python3_host_prog = expand('/usr/local/bin/python3')
+  let g:python3_host_prog = expand('/opt/homebrew/bin/python3')
 endif
+" let g:coc_node_path = '/opt/homebrew/Cellar/node/20.6.1/bin/node'
 
 "" coc
 
@@ -442,8 +454,10 @@ nnoremap <silent> <C-k> :TmuxNavigateUp<cr>
 
 "}}}
 
-
 " ======================== Additional sourcing ====================== "{{{
 source ~/.config/nvim/statusline.vim
+source ~/.config/nvim/filetypes.lua
+source ~/.config/nvim/treesitter.lua
+source ~/.config/nvim/clipboard.lua
 
 "}}}

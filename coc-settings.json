@@ -3,14 +3,14 @@
   "coc.preferences.colorSupport": true,
   "coc.preferences.snippetStatusText": "Ⓢ ",
   "coc.preferences.formatOnSaveFiletypes": [
-    "javascript",
-    "html",
-    "css",
-    "json",
-    "markdown",
-    "typescript",
-    "python",
-    "dart"
+    //    "javascript",
+    //    "html",
+    //    "css",
+    //    "json",
+    //    "markdown",
+    //    "typescript",
+    //    "python",
+    //    "dart"
   ],
 
   // suggest settings
@@ -75,5 +75,6 @@
   // other language specific settings
   "html.autoClosingTags": true,
   "prettier.proseWrap": "always",
-  "python.formatting.provider": "black"
+  "python.formatting.provider": "black",
+  "snippets.ultisnips.pythonPrompt": false
 }
